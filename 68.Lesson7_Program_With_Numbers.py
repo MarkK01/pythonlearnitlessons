@@ -101,9 +101,32 @@
 # 9. Mortgage Payment Calculator
 # TODO: Calculate monthly mortgage payment
 # Hint: Use the formula:  P * (r(1+r)^n / ((1+r)^r - 1))
-# where P = principal, r = monthly rate, n = number of payments
-loan_amount = float(input("Enter the loan amount: "))
-annual_interest_rate = float(input("Enter the annual interest rate (%): "))
-loan_term_years = float(input("Enter the loan term in years: "))
-monthly_payments = (loan_amount * (annual_interest_rate / 1200)) / (1 - (1 + annual_interest_rate / 1200) ** (-loan_term_years * 12))
-print(f"Your monthly mortgage payment is ${monthly_payments}")
+# # where P = principal, r = monthly rate, n = number of payments
+# loan_amount = float(input("Enter the loan amount: "))
+# annual_interest_rate = float(input("Enter the annual interest rate (%): "))
+# loan_term_years = float(input("Enter the loan term in years: "))
+# monthly_payments = (loan_amount * (annual_interest_rate / 1200)) / (1 - (1 + annual_interest_rate / 1200) ** (-loan_term_years * 12))
+# print(f"Your monthly mortgage payment is ${monthly_payments}")
+
+# 10. Time Zone Converter
+# TODO: Convert time between time zones
+# Hint: Add time difference and use modulo 24 for result
+
+
+def time_to_float(time_str):
+    hours, minutes = map(int, time_str.split(':'))
+    return hours + minutes / 60
+
+
+def float_to_time(time_float):
+    hours = int(time_float)
+    minutes = int((time_float - hours) * 60)
+    return f"{hours:02d}:{minutes:02d}"
+
+
+local_time_str = input("Enter the local time (24-hour format, HH:MM)")
+local_time = time_to_float(local_time_str)
+time_difference = float(input("Enter the time difference (+ for ahead, - for beind)"))
+converted_time = (local_time + time_difference) % 24
+converted_time_str = float_to_time(converted_time)
+print(f"The converted time is: {converted_time_str}")
