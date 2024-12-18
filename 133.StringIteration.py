@@ -13,3 +13,4 @@ for ltr in student_name:
         new_name += ltr
 
 print(student_name, "to", new_name)
+
